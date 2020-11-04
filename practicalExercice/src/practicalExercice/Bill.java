@@ -3,11 +3,11 @@ package practicalExercice;
 import java.util.ArrayList;
 import java.util.Date;
 
+
+
 public class Bill {
 int id;
-Date dateBill;
-float discount;
-float price;
+
 ArrayList<CommandLine> prod = new ArrayList <CommandLine>();
 
 public void addCommandLine(CommandLine c) {
@@ -19,14 +19,28 @@ public void addCommandLine(CommandLine c) {
 public Bill() {
 	
 }
-public Bill(int id, Date dateBill, float discount, float price) {
+public Bill(int id) {
 	this.id=id;
-	this.dateBill=dateBill;
-	this.discount=discount;
-	this.price=price;
+	
 }
 
 
+
+	public int getId() {
+	return id;
+}
+
+public void setId(int id) {
+	this.id = id;
+}
+
+public void addCommand(CommandLine[] prod, CommandLine y, int j) {
+    if (j < prod.length)
+    {prod[j]=y;
+    j+=1;
+    }
+    else
+    System.out.println("Stock is full");}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

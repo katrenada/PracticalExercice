@@ -3,12 +3,12 @@ package practicalExercice;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 public class Test {
 
 	static void menu() {
-		//System.out.println("1- Display all items ");
-		//System.out.println("2- Add new item ");
-		//System.out.println("3- Manage Users ");
+		
 		System.out.println("----------------------------------------------- ");
 		System.out.println("1- Do you want to switch to a user? tap 1  ");
 		System.out.println("2- Do you want to switch to an admin? Tap 2 ");
@@ -46,9 +46,9 @@ public class Test {
 				else
 				p.displayItems(prod);
 				break;
-			/*case 2: 
+			case 2: 
 				
-				Product pp = new Product();
+				/*Product pp = new Product();
 				CommandLine lin= new CommandLine();
 				System.out.println("Enter the product Quantity ");
 				Scanner scc= new Scanner(System.in);
@@ -60,8 +60,53 @@ public class Test {
 				System.out.println("Your bill : ");
 				lin.setQuantity(pp.getQte());
 				lin.setP(pp.getProductByID(pp.getId(), prod));
-				System.out.println("The total is " +lin.claculateTotalPrice());
-				break;*/
+				System.out.println("The total is " +lin.claculateTotalPrice());*/
+				
+				
+				
+				
+				
+				
+				
+				Product produits[]= new Product[20];
+		        CommandLine line[]= new CommandLine[100];
+				
+				
+			       int j=0;
+			        int s=1;
+			        do { 
+			        Bill bl = new Bill();
+			        	p.displayItems(prod);
+			            Scanner scanner = new Scanner( System.in );
+			            System.out.println(" position= ");
+			            int po = scanner.nextInt();
+			           
+			            System.out.println(" Quantity = ");
+			            int qte= scanner.nextInt();
+			            CommandLine y=new CommandLine (qte,produits[po]);
+			           
+			            bl.addCommand(line,y,j);
+			            System.out.println("Want to Command more?  1:Yes // 2:No");
+			            Scanner scr = new Scanner( System.in );
+			            s = scr.nextInt();
+			            j+=1;
+			        }while(s==1);
+			    	double total=0.0;
+					
+					 for(int h=0;h<j;h++)
+				     {
+					System.out.println("Product :"+line[h].getP() +"  unit price :"+line[h].getP()+"  quantity  : "+line[h].getQuantity()+"  Total "+line[h].claculateTotalPrice(line[h].getQuantity(), line[h].getP()));
+				     total+=line[h].claculateTotalPrice(line[h].getQuantity(), line[h].getP());
+				         }
+				     System.out.println("total price is  : "+total);
+				    
+		
+		
+				
+				
+				
+				
+				break;
 			}
 			
 			break;

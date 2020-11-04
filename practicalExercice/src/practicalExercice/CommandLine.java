@@ -24,8 +24,8 @@ public class CommandLine {
 	public void setP(Product p) {
 		this.p = p;
 	}
-	public float claculateTotalPrice() {
-		return (this.quantity*p.getPrice());
+	public float claculateTotalPrice(int quantity, Product p) {
+		return (this.quantity*this.p.getPrice());
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
