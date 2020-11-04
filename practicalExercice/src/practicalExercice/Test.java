@@ -68,7 +68,7 @@ public class Test {
 				
 				
 				
-				Product produits[]= new Product[20];
+			
 		        CommandLine line[]= new CommandLine[100];
 				
 				
@@ -83,7 +83,7 @@ public class Test {
 			           
 			            System.out.println(" Quantity = ");
 			            int qte= scanner.nextInt();
-			            CommandLine y=new CommandLine (qte,produits[po]);
+			            CommandLine y=new CommandLine (qte,prod.get(po));
 			           
 			            bl.addCommand(line,y,j);
 			            System.out.println("Want to Command more?  1:Yes // 2:No");
@@ -95,8 +95,8 @@ public class Test {
 					
 					 for(int h=0;h<j;h++)
 				     {
-					System.out.println("Product :"+line[h].getP() +"  unit price :"+line[h].getP()+"  quantity  : "+line[h].getQuantity()+"  Total "+line[h].claculateTotalPrice(line[h].getQuantity(), line[h].getP()));
-				     total+=line[h].claculateTotalPrice(line[h].getQuantity(), line[h].getP());
+					System.out.println("Product :"+line[h].getP() +"   quantity  : "+line[h].getQuantity()+"  Total "+line[h].claculateTotalPrice());
+				     total+=line[h].claculateTotalPrice();
 				         }
 				     System.out.println("total price is  : "+total);
 				    
