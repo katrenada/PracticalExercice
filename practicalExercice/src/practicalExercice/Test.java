@@ -29,7 +29,7 @@ public class Test {
 		Scanner sc2 = new Scanner (System.in);
 		Scanner sc4 = new Scanner (System.in);
 		ArrayList<Product> prod = new ArrayList <Product>();
-		Product p = new Product();
+		Product pp = null;
 		do{menu();
 		opt= sc.nextInt();
 		switch(opt) {
@@ -44,39 +44,15 @@ public class Test {
 					System.out.println("There's no products ");
 				
 				else
-				p.displayItems(prod);
+				pp.displayItems(prod);
 				break;
 			case 2: 
-				
-				/*Product pp = new Product();
-				CommandLine lin= new CommandLine();
-				System.out.println("Enter the product Quantity ");
-				Scanner scc= new Scanner(System.in);
-				pp.setQte(scc.nextInt());
-				System.out.println("Enter the ID product ");
-				pp.setName(scc.nextLine());
-				
-				//pp.addProduct(pp.getProductByID(pp.getId(), prod));
-				System.out.println("Your bill : ");
-				lin.setQuantity(pp.getQte());
-				lin.setP(pp.getProductByID(pp.getId(), prod));
-				System.out.println("The total is " +lin.claculateTotalPrice());*/
-				
-				
-				
-				
-				
-				
-				
-			
 		        CommandLine line[]= new CommandLine[100];
-				
-				
 			       int j=0;
 			        int s=1;
 			        do { 
 			        Bill bl = new Bill();
-			        	p.displayItems(prod);
+			        	pp.displayItems(prod);
 			            Scanner scanner = new Scanner( System.in );
 			            System.out.println(" position= ");
 			            int po = scanner.nextInt();
@@ -94,11 +70,11 @@ public class Test {
 			    	double total=0.0;
 					
 					 for(int h=0;h<j;h++)
-				     {
-					System.out.println("Product :"+line[h].getP() +"   quantity  : "+line[h].getQuantity()+"  Total "+line[h].claculateTotalPrice());
-				     total+=line[h].claculateTotalPrice();
+				     { total+=line[h].claculateTotalPrice();
+					System.out.println("Product :"+line[h].getP().getName()+"   quantity  : "+line[h].getQuantity()+"  Total "+line[h].claculateTotalPrice()+" DT");
+				     
 				         }
-				     System.out.println("total price is  : "+total);
+					 System.out.println("total price is  :" +total);
 				    
 		
 		
@@ -127,26 +103,32 @@ public class Test {
 				case 1: 
 					System.out.println("Enter Item Name: ");
 					
-					p.setName(sc.nextLine());
-					sc =new Scanner (System.in);
-					sc.next();
 					
+					sc =new Scanner (System.in);
+					String s = sc.nextLine();					
 					
 					System.out.println("Enter Item Id: ");
 					
-					p.setId(sc.nextInt());
+					Scanner ssc1= new Scanner (System.in);
+					int id= ssc1.nextInt();
 					
 					
 					System.out.println("Enter Item Price: ");
-					p.setPrice(sc.nextFloat());
+					Scanner ssc2= new Scanner (System.in);
+					float price= ssc1.nextFloat();
+					
 					
 					System.out.println("Enter Item quantity: ");
-					p.setQte(sc.nextInt());
+					Scanner ssc3= new Scanner (System.in);
+					int quanti= ssc3.nextInt();
 					
-					prod.add(p);
+					 pp= new Product(id,s,price,quanti);
+					pp.addProduct(pp);
+					prod.add(pp);
+					
 					break;
 				case 2 :
-					p.displayItems(prod);
+					pp.displayItems(prod);
 					break ;
 				}
 				
