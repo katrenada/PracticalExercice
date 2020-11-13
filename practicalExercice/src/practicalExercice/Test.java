@@ -1,5 +1,9 @@
 package practicalExercice;
 
+import java.sql.Date;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,7 +20,7 @@ public class Test {
 		System.out.println("----------------------------------------------- ");
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		
 		
 		
@@ -28,8 +32,8 @@ public class Test {
 		Scanner sc1 = new Scanner (System.in);
 		Scanner sc2 = new Scanner (System.in);
 		Scanner sc4 = new Scanner (System.in);
-		ArrayList<Product> prod = new ArrayList <Product>();
-		Product pp = null;
+		
+		Product pp = new Product();
 		do{menu();
 		opt= sc.nextInt();
 		switch(opt) {
@@ -40,19 +44,29 @@ public class Test {
 			opt1=sc.nextInt();
 			switch(opt1) {
 			case 1:
-				if(prod.size()==0) 
-					System.out.println("There's no products ");
 				
-				else
-				pp.displayItems(prod);
+				pp.displayAllProducts();
 				break;
 			case 2: 
-		        CommandLine line[]= new CommandLine[100];
+				int r;
+				CommandLine cmd= new CommandLine();
+				do {
+					pp.displayAllProducts();
+					 
+					cmd.addCommandeline();
+					System.out.println("tap 2 to exit");
+					Scanner sx= new Scanner(System.in);
+					 r=sx.nextInt();
+				}while(r!=2);
+				cmd.displayBill();
+				
+				
+		        /*CommandLine line[]= new CommandLine[100];
 			       int j=0;
 			        int s=1;
 			        do { 
 			        Bill bl = new Bill();
-			        	pp.displayItems(prod);
+			        	pp.displayAllProducts();
 			            Scanner scanner = new Scanner( System.in );
 			            System.out.println(" position= ");
 			            int po = scanner.nextInt();
@@ -77,7 +91,7 @@ public class Test {
 					 System.out.println("total price is  :" +total);
 				    
 		
-		
+		*/
 				
 				
 				
@@ -101,34 +115,37 @@ public class Test {
 				opt4= sc.nextInt();
 				switch(opt4) {
 				case 1: 
-					System.out.println("Enter Item Name: ");
+					System.out.println("Enter book title: ");
 					
 					
 					sc =new Scanner (System.in);
-					String s = sc.nextLine();					
+					String title = sc.nextLine();					
 					
-					System.out.println("Enter Item Id: ");
+					System.out.println("Enter book author: ");
 					
 					Scanner ssc1= new Scanner (System.in);
-					int id= ssc1.nextInt();
+					String author= ssc1.nextLine();
 					
 					
-					System.out.println("Enter Item Price: ");
+					System.out.println("Enter book Price: ");
 					Scanner ssc2= new Scanner (System.in);
-					float price= ssc1.nextFloat();
+					double price= ssc1.nextDouble();
 					
 					
-					System.out.println("Enter Item quantity: ");
+					System.out.println("Enter date release : ");
 					Scanner ssc3= new Scanner (System.in);
-					int quanti= ssc3.nextInt();
+					String relase= ssc3.next();
+					//Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
+					//Date releasedate= (Date) new SimpleDateFormat("dd/mm/yyyy").parse(relase);
+					Date releasedate=Date.valueOf(relase);
 					
-					 pp= new Product(id,s,price,quanti);
-					pp.addProduct(pp);
-					prod.add(pp);
+					 pp= new Product(title,author,price,releasedate);
+					pp.addProduct();
+					
 					
 					break;
 				case 2 :
-					pp.displayItems(prod);
+					pp.displayAllProducts();
 					break ;
 				}
 				
